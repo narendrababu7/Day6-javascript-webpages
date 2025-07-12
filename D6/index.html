@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blood Donation Eligibility</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(246, 245, 242);
+      padding: 20px;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      color: #004080;
+    }
+
+    form {
+      background-color: #ea16b2;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      margin: 0 auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      background-color: #004080;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #003366;
+    }
+
+    .results {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 40px;
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Blood Donation Eligibility Form</h2>
+  <p style="text-align:center;">Fill the details to know more</p>
+
+  <form id="eligibility_form">
+    <label for="p">Name:</label>
+    <input type="text" id="p" placeholder="Enter name" required>
+
+    <label for="it">Age:</label>
+    <input type="number" id="it" placeholder="Enter age" required>
+
+    <label for="io">Blood Count:</label>
+    <input type="number" id="io" placeholder="Enter blood count" required>
+
+    <label for="ib">Blood Sugar Level:</label>
+    <input type="number" id="ib" placeholder="Enter blood sugar level" required>
+
+    <label for="im">Hemoglobin:</label>
+    <input type="number" id="im" placeholder="Enter hemoglobin" required>
+
+    <input type="submit" value="Check Eligibility" id="check_eligibility">
+  </form>
+
+  <div class="results" id="results"></div>
+
+  <footer>
+    <p>&copy; 2025 Blood Donation Awareness | Stay Healthy & Save Lives!</p>
+  </footer>
+
+  <script>
+    document.getElementById("eligibility_form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const age = parseInt(document.getElementById("it").value);
+      const bloodCount = parseInt(document.getElementById("io").value);
+      const bloodSugar = parseFloat(document.getElementById("ib").value);
+      const hemoglobin = parseFloat(document.getElementById("im").value);
+      const resultsDiv = document.getElementById("results");
+
+      if (age >= 18) {
+        if (bloodCount > 100000) {
+          if (hemoglobin > 12) {
+            if (bloodSugar >= 80 && bloodSugar <= 120) {
+              resultsDiv.innerHTML = "✅ You are eligible to donate blood.";
+              resultsDiv.style.color = "green";
+            } else {
+              resultsDiv.innerHTML = "❌ Not eligible: Blood sugar must be between 80 and 120.";
+              resultsDiv.style.color = "red";
+            }
+          } else {
+            resultsDiv.innerHTML = "❌ Not eligible: Hemoglobin must be above 12.";
+            resultsDiv.style.color = "red";
+          }
+        } else {
+          resultsDiv.innerHTML = "❌ Not eligible: Blood count must be above 100000.";
+          resultsDiv.style.color = "red";
+        }
+      } else {
+        resultsDiv.innerHTML = "❌ Not eligible: Age must be 18 or older.";
+        resultsDiv.style.color = "red";
+      }
+    });
+  </script>
+
+</body>
+</html>

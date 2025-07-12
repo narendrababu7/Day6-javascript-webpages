@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Application Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      padding: 20px;
+    }
+    body {
+    background-image: url("logo.webp"); /* Replace with your image path */
+    background-size: cover;                /* Ensures the image covers the entire page */
+    background-repeat: no-repeat;          /* Prevents the image from repeating */
+    background-attachment: fixed;          /* Keeps the image fixed when scrolling */
+    background-position: center;           /* Centers the image */
+    font-family: Arial, sans-serif;
+    color: #110202d4;
+    margin: 0;
+    padding: 0;
+  }
+  form {
+      max-width: 600px;
+      margin: auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #e71212;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="radio"], input[type="checkbox"] {
+      width: auto;
+    }
+
+    button {
+      background-color: #004080;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #002f5f;
+    } 
+  </style>
+</head>
+<body>
+    <h2>Student Application Form</h2>
+  <form>
+    
+
+    <label for="fname">First Name:</label>
+    <input type="text" id="fname" required>
+
+    <label for="lname">Last Name:</label>
+    <input type="text" id="lname" required>
+
+    <label for="father">Father's Name:</label>
+    <input type="text" id="father" required>
+
+    <label for="interMarks">Inter/Diploma Marks:</label>
+    <input type="number" id="interMarks" required>
+
+    <label for="tenthMarks">10th Marks:</label>
+    <input type="number" id="tenthMarks" required>
+
+    <label for="course">Select Course:</label>
+    <select id="course" required>
+      <option value="">-- Select --</option>
+      <option value="civil">Civil</option>
+      <option value="cse">CSE</option>
+      <option value="cse_aiml">CSE (AI & ML)</option>
+      <option value="cse_ds">CSE (DS)</option>
+      <option value="mech">Mechanical</option>
+      <option value="ece">ECE</option>
+      <option value="eee">EEE</option>
+    </select>
+
+    <label>Hostel Accommodation:</label><br>
+    <input type="radio" name="hostel" value="hostel" required> Hostel<br>
+    <input type="radio" name="hostel" value="without"> Without Hostel<br>
+
+    <label for="participation"> I have participation certificates</label><br>
+    <input type="file" id="participation"><br>
+
+    <label for="mobile">Mobile Number:</label>
+    <input type="tel" id="mobile" pattern="[0-9]{10}" placeholder="Enter 10-digit number" required>
+
+    <label for="photo">Upload Image:</label>
+    <input type="file" id="photo" accept="image/*" required>
+
+    <label for="marksheet10">Upload 10th Marks Memo:</label>
+    <input type="file" id="marksheet10" accept=".pdf,.jpg,.jpeg,.png" required>
+
+    <label for="marksheetInter">Upload Inter/Diploma Marks Memo:</label>
+    <input type="file" id="marksheetInter" accept=".pdf,.jpg,.jpeg,.png" required>
+
+    <label>
+      <input type="checkbox" required> I agree to the Terms and Conditions
+    </label><br><br>
+
+    <center>
+      <button type="submit">Apply</button>
+    </center>
+  </form>
+
+</body>
+</html>
